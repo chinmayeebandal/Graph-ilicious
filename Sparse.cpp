@@ -1,7 +1,24 @@
+/* *
+ * Character: Sparse
+ * Represents: Adjacency List 
+ *             -> **Vector of Vector -> use for cache friendliness
+ *             -> Array of Array Ex: [[1, 2], [2, 3], [3, 1]]
+ *                                        index 0| index 1 | index 2  // size == number of nodes
+ *                                        node 1| node 2  | node 3
+ *             -> Array of List
+ * Properties: 1) array.size() == # of vertices/nodes, 
+ *             2) Edge Weights: add a pair of (Node, weight) into adjList
+ * Usage: Sparse graphs, aka, small number of edges/ Less connections
+ * Challenges
+ * 
+ * */
+
+
 #include <iostream>
 #include <vector>
 #include <unordered_set>
 
+// Represents a Node of the Graph
 struct Node {
     int value;
     std::vector<Node*> adjList;
@@ -28,10 +45,12 @@ struct Graph {
         nodes = std::unordered_set<Node*>();
     }
 
-    //Adj list, makes it unidirectional
+    //Creates an Edge between two nodes in the graph. makes the graph unidirectional or directed
+    // To add WEIGHT to the Edge, change to List or Vector<Pair<Node*, int>>>, where int is for the weight
     void createEdge(Node* from, Node* to) {
         from->adjList.push_back(to);
-        // to->adjList.push_back(from);
+        //Uncommenting the code below makes the graph bi-directional or undirected
+        //to->adjList.push_back(from);
     }
 
     void addNode(Node* node) {
