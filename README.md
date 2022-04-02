@@ -6,3 +6,5 @@ Running instructions:
 
 1. run `make`
 2. run `./graph`
+
+3. run `make clean` to remove binaries
