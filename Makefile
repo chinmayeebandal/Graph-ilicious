@@ -2,16 +2,16 @@ CXX = g++
 CXXFLAGS = -std=c++14 -O2 -Wall
 
 
-sparse: Sparse.o 
-	$(CXX) $(CXXFLAGS) Sparse.o -o sparse
+unionfind: UnionFind.o 
+	$(CXX) $(CXXFLAGS) UnionFind.o -o unionfind
 
-Sparse.o: Sparse.cpp
-	$(CXX) $(CXXFLAGS) -c Sparse.cpp
+UnionFind.o: UnionFind.cpp
+	$(CXX) $(CXXFLAGS) -c UnionFind.cpp
 
-all: sparse
+all: unionfind
 
-run: sparse
-	./sparse
+run: unionfind
+	./unionfind
 
 clean:
-	rm -rf sparse *.o
+	rm -rf unionfind *.o
