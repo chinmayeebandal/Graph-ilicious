@@ -20,7 +20,8 @@ class UnionFind {
         if(x == root[x]) {    
             return x;
         }
-        return root[x] = find(root[x]); //Key: Recursion until root(not parent) is found
+        return root[x] = find(root[x]); //Key: Recursion until ROOT is found
+        // return x = find(root[x]);    //Key: Recurse until PARENT is found
     }
 
     // Merges two nodes/connected componse by doing a Union by Rank
